@@ -19,8 +19,8 @@ def on_start(container):
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}
     
     #response = phantom.requests.get(iurl, params=params, verify=False).json()
-    #response = phantom.requests.get(iurl, verify=False).json()
-    response = phantom.requests.post(iurl, json=updated_artifact).json()
+    response = phantom.requests.get(iurl, verify=False).json()
+    #response = phantom.requests.post(iurl, json=updated_artifact).json()
     phantom.debug(response)
     
     # call 'playbook_community_investigate_1' block
