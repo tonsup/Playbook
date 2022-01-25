@@ -11,7 +11,7 @@ def on_start(container):
   
     
     #iurl =  phantom.build_phantom_rest_url('action_run')
-    iurl =  phantom.build_phantom_rest_url('playbook_run/165')
+    iurl =  phantom.build_phantom_rest_url('playbook_run/165/actions')
     response = phantom.requests.get(iurl, verify=False).json()
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}
     
