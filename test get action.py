@@ -6,52 +6,17 @@ import json
 from datetime import datetime, timedelta
 
 def on_start(container):
-    updated_artifact = {}
+   
     phantom.debug('on_start() called')
-    phantom.debug(container)
-    phantom.debug('print artifact')
-    #artifacts = phantom.collect(container, 'artifacts:*', scope='all')
-    artifacts = phantom.collect2(container=container, datapath=['artifact:*.cef.*', 'artifact:*.id'])
-    phantom.debug(artifacts[0])
+  
     
-    #phantom.debug(artifacts[1]["cef"]["app"]
-    updated_artifact['cef'] = artifacts[0]['cef']
-    updated_artifact['cef_types'] = artifacts[0]['cef_types']
-    
-    
-    #phantom.debug(updated_artifact)
-    #updated_artifact['cef'].update({"myname2": "suphachok"})
-    #updated_artifact['cef_types'].update({"myname2": ["domain"]})
-    key = '_originating_search'
-    if key in updated_artifact['cef']:
-        del updated_artifact['cef']['_originating_search']
-    
-    if key in updated_artifact['cef']:
-        del updated_artifact['cef_types']['_originating_search']
-    
-    artifact_id = artifacts[0]["id"]
-    phantom.debug('updating artifact {} with the following attributes:\n{}'.format(artifact_id, updated_artifact))
-    url = phantom.build_phantom_rest_url('artifact', artifact_id)
-    phantom.debug(url)
-    response = phantom.requests.post(url, json=updated_artifact, verify=False).json()
-
-    phantom.debug('POST /rest/artifact returned the following response:\n{}'.format(response))
-    if 'success' not in response or response['success'] != True:
-        raise RuntimeError("POST /rest/artifact failed")
-    #update_data = { "severity": "low" }
-    #success, message = phantom.update(container, update_data)
-    
-    #phantom.debug('Update Container')
-    #phantom.debug(phantom.get_raw_data(container))
-    #phantom.debug(container)
-    
-    #iurl =  phantom.build_phantom_rest_url('indicator/1018')
-    #response = phantom.requests.get(iurl, verify=False).json()
+    iurl =  phantom.build_phantom_rest_url('indicator/1018')
+    response = phantom.requests.get(iurl, verify=False).json()
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}
     
     #response = phantom.requests.get(iurl, params=params, verify=False).json()
-    #response = phantom.requests.get(iurl, verify=False).json()
-    #phantom.debug(response)
+    response = phantom.requests.get(iurl, verify=False).json()
+    phantom.debug(response)
     
     # call 'playbook_community_investigate_1' block
     #playbook_community_investigate_1(container=container)
