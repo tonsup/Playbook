@@ -13,7 +13,7 @@ def on_start(container):
     #iurl =  phantom.build_phantom_rest_url('action_run')
     iurl =  phantom.build_phantom_rest_url('playbook_run/165')
     response = phantom.requests.get(iurl, verify=False).json()
-    updated_artifact = response
+    #updated_artifact = response
     updated_artifact['status'] = "success"
     phantom.debug(updated_artifact)
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}

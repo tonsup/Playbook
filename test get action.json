@@ -7,7 +7,7 @@
             "clean": false,
             "code_block": "",
             "description": "",
-            "hash": "e53194116406cbe029c35ddc549faff3632e721b",
+            "hash": "594836d9f4940552d5818d703d444ff4b20eb469",
             "joint": {
                 "cells": [
                     {
@@ -371,7 +371,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#A30014"
+                                "stroke": "#5C6773"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -546,7 +546,7 @@
         "schema": 4,
         "version": "4.10.7.63984"
     },
-    "create_time": "2022-01-25T16:05:47.903700+00:00",
+    "create_time": "2022-01-25T16:07:37.107090+00:00",
     "draft_mode": false,
     "labels": [
         "*"
