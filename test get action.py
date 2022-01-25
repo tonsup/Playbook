@@ -15,6 +15,7 @@ def on_start(container):
     response = phantom.requests.get(iurl, verify=False).json()
     updated_artifact = response
     updated_artifact['status'] = "success"
+    phantom.debug(updated_artifact)
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}
     
     #response = phantom.requests.get(iurl, params=params, verify=False).json()
