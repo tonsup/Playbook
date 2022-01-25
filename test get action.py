@@ -6,17 +6,20 @@ import json
 from datetime import datetime, timedelta
 
 def on_start(container):
-   
+    updated_artifact = {}
     phantom.debug('on_start() called')
   
     
     #iurl =  phantom.build_phantom_rest_url('action_run')
     iurl =  phantom.build_phantom_rest_url('playbook_run/165')
     response = phantom.requests.get(iurl, verify=False).json()
+    updated_artifact = response
+    updated_artifact['status'] = "success"
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}
     
     #response = phantom.requests.get(iurl, params=params, verify=False).json()
-    response = phantom.requests.get(iurl, verify=False).json()
+    #response = phantom.requests.get(iurl, verify=False).json()
+    response = phantom.requests.post(iurl, json=updated_artifact, verify=False).json()
     phantom.debug(response)
     
     # call 'playbook_community_investigate_1' block
