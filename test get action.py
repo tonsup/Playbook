@@ -10,7 +10,8 @@ def on_start(container):
     phantom.debug('on_start() called')
   
     
-    iurl =  phantom.build_phantom_rest_url('action_run')
+    #iurl =  phantom.build_phantom_rest_url('action_run')
+    iurl =  phantom.build_phantom_rest_url('playbook_run')
     response = phantom.requests.get(iurl, verify=False).json()
     #params = {"page_size":1000 , "order":"desc" ,"timerange" : "last_30_days"}
     
